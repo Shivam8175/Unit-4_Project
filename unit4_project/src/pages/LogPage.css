@@ -1,0 +1,153 @@
+.profile-settings-container {
+  display: flex;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #00c4b4, #00e676);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon {
+  font-size: 40px;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.sidebar li.active {
+  background-color: #e6f0fa;
+  color: #007bff;
+  border-radius: 5px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.section p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-details .detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+#pass {
+  margin-left: 400px;
+}
+.detail-item label {
+  font-size: 14px;
+  color: #666;
+}
+
+.detail-item span {
+  font-size: 14px;
+  color: #333;
+}
+
+.detail-item a {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.verified {
+  color: #00c4b4;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.verified::before {
+  content: "✔";
+  margin-right: 5px;
+}
+
+.change-password {
+  margin-left: auto;
+}
+
+.add-traveller {
+  background-color: #fff;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-traveller:hover {
+  background-color: #e6f0fa;
+}
