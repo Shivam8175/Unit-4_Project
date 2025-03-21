@@ -40,7 +40,7 @@ const LoginPage = () => {
         } else {
           sessionStorage.setItem("user", JSON.stringify({ email }));
         }
-        setTimeout(() => navigate("/LogPage"), 1000);
+        setTimeout(() => navigate("/home"), 1000);
       } else {
         setMessage("Invalid email or password.");
       }
