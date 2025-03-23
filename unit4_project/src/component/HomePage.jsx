@@ -3,9 +3,6 @@ import "./Homepage.css";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const gotologin = () => {
-    navigate("/login");
-  };
   const navigate = useNavigate();
   const [tripType, setTripType] = useState("One Way");
   const [formData, setFormData] = useState({
@@ -20,6 +17,10 @@ const HomePage = () => {
 
   const [searchResults, setSearchResults] = useState([]);
   const [selectedButton, setSelectedButton] = useState("Flight");
+
+  const gotologin = () => {
+    navigate("/login");
+  };
 
   const handleTripTypeChange = (e) => {
     setTripType(e.target.value);
@@ -41,7 +42,16 @@ const HomePage = () => {
         to: formData.to,
         departure: formData.departureDate,
         return: formData.returnDate || "N/A",
-        price: formData.fareType === "Regular" ? 5000 : 4500, // Example discount for special fares
+        price:
+          formData.fareType === "Regular"
+            ? 5000
+            : formData.fareType === "Student"
+            ? 4500
+            : formData.fareType === "Senior Citizen"
+            ? 4600
+            : formData.fareType === "Armed Forces"
+            ? 4400
+            : 4700, // Doctor and Nurses
       },
       {
         flight: "IndiGo 6E-202",
@@ -49,7 +59,84 @@ const HomePage = () => {
         to: formData.to,
         departure: formData.departureDate,
         return: formData.returnDate || "N/A",
-        price: formData.fareType === "Regular" ? 4800 : 4300,
+        price:
+          formData.fareType === "Regular"
+            ? 4800
+            : formData.fareType === "Student"
+            ? 4300
+            : formData.fareType === "Senior Citizen"
+            ? 4400
+            : formData.fareType === "Armed Forces"
+            ? 4200
+            : 4500, // Doctor and Nurses
+      },
+      {
+        flight: "SpiceJet SG-303",
+        from: formData.from,
+        to: formData.to,
+        departure: formData.departureDate,
+        return: formData.returnDate || "N/A",
+        price:
+          formData.fareType === "Regular"
+            ? 4600
+            : formData.fareType === "Student"
+            ? 4100
+            : formData.fareType === "Senior Citizen"
+            ? 4200
+            : formData.fareType === "Armed Forces"
+            ? 4000
+            : 4300, // Doctor and Nurses
+      },
+      {
+        flight: "Vistara UK-404",
+        from: formData.from,
+        to: formData.to,
+        departure: formData.departureDate,
+        return: formData.returnDate || "N/A",
+        price:
+          formData.fareType === "Regular"
+            ? 5500
+            : formData.fareType === "Student"
+            ? 5000
+            : formData.fareType === "Senior Citizen"
+            ? 5100
+            : formData.fareType === "Armed Forces"
+            ? 4900
+            : 5200, // Doctor and Nurses
+      },
+      {
+        flight: "GoAir G8-505",
+        from: formData.from,
+        to: formData.to,
+        departure: formData.departureDate,
+        return: formData.returnDate || "N/A",
+        price:
+          formData.fareType === "Regular"
+            ? 4700
+            : formData.fareType === "Student"
+            ? 4200
+            : formData.fareType === "Senior Citizen"
+            ? 4300
+            : formData.fareType === "Armed Forces"
+            ? 4100
+            : 4400, // Doctor and Nurses
+      },
+      {
+        flight: "AirAsia AK-606",
+        from: formData.from,
+        to: formData.to,
+        departure: formData.departureDate,
+        return: formData.returnDate || "N/A",
+        price:
+          formData.fareType === "Regular"
+            ? 4900
+            : formData.fareType === "Student"
+            ? 4400
+            : formData.fareType === "Senior Citizen"
+            ? 4500
+            : formData.fareType === "Armed Forces"
+            ? 4300
+            : 4600, // Doctor and Nurses
       },
     ];
     setSearchResults(mockResults);
@@ -57,6 +144,11 @@ const HomePage = () => {
 
   const handleButtonClick = (buttonName) => {
     setSelectedButton(buttonName);
+  };
+
+  const handleBookNow = (flight) => {
+    // For now, just navigate to a booking page (you can create this later)
+    navigate(`/book/${flight}`);
   };
 
   return (
@@ -295,6 +387,12 @@ const HomePage = () => {
                 <p>Departure: {result.departure}</p>
                 <p>Return: {result.return}</p>
                 <p>Price: ₹{result.price}</p>
+                <button
+                  className="book-now-button"
+                  onClick={() => handleBookNow(result.flight)}
+                >
+                  Book Now
+                </button>
               </div>
             ))}
           </div>
